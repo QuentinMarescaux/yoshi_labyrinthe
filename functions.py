@@ -41,12 +41,12 @@ def demander_prenom(fenetre, compteur):
 	largeur_fenetre = fenetre.get_size()[0]
 	hauteur_fenetre = fenetre.get_size()[1]
 
-	text_box = makeTextBox(largeur_fenetre / 2, hauteur_fenetre / 2 + 50, 200, 0, "Prenom", 15, 12)
-	showTextBox(text_box)
-	prenom = textBoxInput(text_box)
+	# text_box = makeTextBox(largeur_fenetre / 2, hauteur_fenetre / 2 + 50, 200, 0, "Prenom", 15, 12)
+	# showTextBox(text_box)
+	# prenom = textBoxInput(text_box)
 
-	print("prenom")
-	print(prenom)
+	# print("prenom")
+	# print(prenom)
 
 	prenom2 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U"]
 
