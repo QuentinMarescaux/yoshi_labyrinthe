@@ -1,29 +1,18 @@
-# Foobar
+# Yoshi Labyrinthe
 
-Foobar is a Python library for dealing with word pluralization.
+Yoshi Labyrinthe est un jeu réalisé avec PyGame dans le cadre d'un projet ISN de Terminal.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
+Télécharger les fichier.
 
 ## Usage
 
-```python
-import foobar
+Lancer labyrinthe.py
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+```bash
+py labyrinthe.py
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+© Quentin Marescaux - Le meilleur des cousins
