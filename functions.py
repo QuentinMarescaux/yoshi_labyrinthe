@@ -6,8 +6,6 @@ from pygame.locals import *
 from pygame.draw import *
 from pygame.font import *
 
-from pygame_functions import *
-
 from constantes import *
 
 

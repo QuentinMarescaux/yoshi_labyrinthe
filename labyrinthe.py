@@ -140,6 +140,7 @@ while continuer:
 
 		#Création du timer
 		compteur = 0
+		#Toutes les secondes on ajoute un event de type USEREVENT à la liste des évenements
 		pygame.time.set_timer(USEREVENT, 1000)
 
 		#Création de Yoshi
@@ -221,7 +222,7 @@ while continuer:
 					# 				touche_pressee = 0
 
 				elif event.type == USEREVENT:
-					#On incrément le compteur de temps et on l'affiche
+					#On incrémente le compteur de temps et on l'affiche
 					compteur += 1
 					rafraichir_bandeau(fenetre, bandeau, niveau, compteur)
 
