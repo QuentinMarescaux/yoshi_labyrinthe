@@ -182,44 +182,6 @@ while continuer:
 						rafraichir_jeu(fenetre, fond, niveau, yoshi)
 
 
-					#Code pour gérer le long appuie sur une touche de déplacement
-
-					# elif event.key == K_RIGHT:
-					# 	touche_pressee = 1
-					# 	while touche_pressee:
-					# 		yoshi.deplacer('droite')
-					# 		rafraichir_jeu(fenetre, fond, niveau, yoshi)
-					# 		pygame.time.wait(200)
-					# 		for event in pygame.event.get():
-					# 			if event.type == KEYUP:
-					# 				touche_pressee = 0
-					# elif event.key == K_LEFT:
-					# 	touche_pressee = 1
-					# 	while touche_pressee:
-					# 		yoshi.deplacer('gauche')
-					# 		rafraichir_jeu(fenetre, fond, niveau, yoshi)
-					# 		pygame.time.wait(200)
-					# 		for event in pygame.event.get():
-					# 			if event.type == KEYUP:
-					# 				touche_pressee = 0
-					# elif event.key == K_UP:
-					# 	touche_pressee = 1
-					# 	while touche_pressee:
-					# 		yoshi.deplacer('haut')
-					# 		rafraichir_jeu(fenetre, fond, niveau, yoshi)
-					# 		pygame.time.wait(200)
-					# 		for event in pygame.event.get():
-					# 			if event.type == KEYUP:
-					# 				touche_pressee = 0
-					# elif event.key == K_DOWN:
-					# 	touche_pressee = 1
-					# 	while touche_pressee:
-					# 		yoshi.deplacer('bas')
-					# 		rafraichir_jeu(fenetre, fond, niveau, yoshi)
-					# 		pygame.time.wait(200)
-					# 		for event in pygame.event.get():
-					# 			if event.type == KEYUP:
-					# 				touche_pressee = 0
 
 				elif event.type == USEREVENT:
 					#On incrémente le compteur de temps et on l'affiche
@@ -248,35 +210,31 @@ while continuer:
 					#On lit les scores déjà présents dans le fichier correspondant au niveau actuel
 					with open(fichier_score, "r") as fichier:
 						for ligne in fichier:
-							scores.append(ligne)
+							scores.append(int(ligne))
 				
 				#On regarde si le score actuel est inférieur à un des meilleurs score du niveau
 				for score in scores:
 					#Si le score est inférieur on l'ajoute à la place de l'ancien
-					if compteur < int(score.split(':')[1]) and score_ajoute == 0:
+					if compteur < score and score_ajoute == 0:
 						score_ajoute = 1
-						nouveaux_scores.append(demander_prenom(fenetre, compteur) + ":%d" % compteur)
-					#On ajoute aussi l'ancien si on a pas encore 4 scores dans le fichier			
+						nouveaux_scores.append(compteur)
+					#On ajoute aussi l'ancien si on a pas encore 4 scores dans le fichier
 					if len(nouveaux_scores) < 4:
 						nouveaux_scores.append(score)
 
 				#Si le score est inférieur a aucun meilleurs scores mais qu'il n'y a pas 4 scores dans le fichier, on l'ajoute tout de même
 				if len(nouveaux_scores) < 4 and score_ajoute == 0:
 					score_ajoute = 1
-					nouveaux_scores.append(demander_prenom(fenetre, compteur) + ":%d" % compteur)
+					nouveaux_scores.append(compteur)
 
 				#On écrit dans le tableau les nouveaux meilleurs scores du niveau
 				fichier = open(fichier_score, "w")
 				for i in range(0, len(nouveaux_scores)):
 					if i == 0:
-						fichier.write(nouveaux_scores[i].rstrip())
+						fichier.write(str(nouveaux_scores[i]))
 					else:
-						fichier.write("\n" + nouveaux_scores[i].rstrip())
+						fichier.write("\n" + str(nouveaux_scores[i]))
 				fichier.close()
-
-				#Si le score du joueur a été ajouté on augmente la taille de l'espace entre les textes
-				if score_ajoute:
-					taille_espace = 150
 				
 				#On affiche le texte pour continuer en fonction du niveau
 				if (numero_niveau != 4):
